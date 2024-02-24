@@ -1,4 +1,4 @@
-const finances = [
+var finances = [
   ['Jan-2010', 867884],
   ['Feb-2010', 984655],
   ['Mar-2010', 322013],
@@ -87,3 +87,27 @@ const finances = [
   ['Feb-2017', 671099],
 ];
 
+function totalOfMonths(arr) {
+  let total = 0
+  arr.forEach(item => {
+    total += 1
+  })
+  return total
+}
+
+function netTotal(arr) {
+  let total = 0
+  arr.forEach(item => {
+    total += item[1]
+  })
+  return total
+}
+
+function logAnalysis() {
+  console.log(`number of months: ${totalOfMonths(finances)}`)
+  console.log(`Total: ${netTotal(finances)}`)
+  console.log(`Average Change: ${averageChange(finances)}`)
+
+}
+
+logAnalysis()
