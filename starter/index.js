@@ -103,6 +103,25 @@ function netTotal(arr) {
   return total
 }
 
+
+function averageChange(arr) {
+    let changesTotal = 0
+    for (var i = 1; i < arr.length; i++) {
+        //Access the current value 
+        var currentValue = arr[i][1];
+        //Access the adjacent value to currentVal 
+        var previousValue = arr[i - 1][1]; 
+        //Calculate the change between the two 
+        var change = currentValue - previousValue
+        //Add the change onto the change total
+        changesTotal += change    
+    } 
+    //calculate the avarage of the change total 
+    let average = changesTotal / (noOfMonths - 1)
+    return average
+  }
+  
+
 function logAnalysis() {
   console.log(`number of months: ${totalOfMonths(finances)}`)
   console.log(`Total: ${netTotal(finances)}`)
