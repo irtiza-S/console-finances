@@ -134,11 +134,26 @@ function greatestIncrease(arr) {
   return maxIncrease
 }
 
+function greatestDecrease(arr) {
+  let decrease = []
+  for (let i = 1; i < arr.length; i++) {
+    let currentVal = arr[i][1]
+    let prevVal = arr[i - 1][1]
+    var decreaseChange = currentVal - prevVal
+    decrease.push(decreaseChange)
+  }
+  let maxDecrease = Math.min(...decrease)
+  
+  return maxDecrease
+}
+
+
 function logAnalysis() {
   console.log(`number of months: ${totalOfMonths(finances)}`)
   console.log(`Total: ${netTotal(finances)}`)
   console.log(`Average Change: ${averageChange(finances)}`)
   console.log(`Greatest Increase in Profits/Losses: ${greatestIncrease(finances)}`)
+  console.log(`Greatest Decrease in Profits/Losses: ${greatestDecrease(finances)}`)
 
 }
 
