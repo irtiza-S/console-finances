@@ -106,6 +106,7 @@ function netTotal(arr) {
 
 function averageChange(arr) {
   let changesTotal = 0
+  let noOfMonths = totalOfMonths(finances)
   for (var i = 1; i < arr.length; i++) {
     //Access the current value 
     var currentValue = arr[i][1];
@@ -118,39 +119,44 @@ function averageChange(arr) {
   } 
   //calculate the avarage of the change total 
   let average = changesTotal / (noOfMonths - 1)
-  return average
+  const roundedAverage = parseFloat(average.toFixed(2))
+  return roundedAverage
 }
 
-
 function greatestIncrease(arr) {
-  let increase = []
+  let maxIncrease = 0
+  let maxIncMonth = ''
   for (let i = 1; i < arr.length; i++) {
-    var currentVal = arr[i][1]
-    var previousVal = arr[i-1][1]
-    var increaseChange = currentVal - previousVal
-    increase.push(increaseChange)
+    let currentIncrease = arr[i][1] - arr[i-1][1]
+    if (currentIncrease > maxIncrease) {
+      maxIncrease = currentIncrease
+      maxIncMonth = arr[i][0]
+    }
   }
-  let maxIncrease = Math.max(...increase)
-  return maxIncrease
+  const ans = `${maxIncMonth} ($${maxIncrease})`
+  return ans
 }
 
 function greatestDecrease(arr) {
-  let decrease = []
+  let maxDecrease = 0
+  let maxDecMonth = ''
   for (let i = 1; i < arr.length; i++) {
-    let currentVal = arr[i][1]
-    let prevVal = arr[i - 1][1]
-    var decreaseChange = currentVal - prevVal
-    decrease.push(decreaseChange)
+    let currentDecrease = arr[i][1] - arr[i-1][1]
+    if (currentDecrease < maxDecrease) {
+      maxDecrease = currentDecrease
+      maxDecMonth = arr[i][0]
+    }
   }
-  let maxDecrease = Math.min(...decrease)
-  
-  return maxDecrease
+  const ans = `${maxDecMonth} ($${maxDecrease})`
+  return ans
 }
 
 
 function logAnalysis() {
+  console.log(`Financial Analysis`)
+  console.log(`----------------------------`)
   console.log(`number of months: ${totalOfMonths(finances)}`)
-  console.log(`Total: ${netTotal(finances)}`)
+  console.log(`Total: $${netTotal(finances)}`)
   console.log(`Average Change: ${averageChange(finances)}`)
   console.log(`Greatest Increase in Profits/Losses: ${greatestIncrease(finances)}`)
   console.log(`Greatest Decrease in Profits/Losses: ${greatestDecrease(finances)}`)
