@@ -21,6 +21,7 @@ Created in HTML, CSS, JavaScript, no installation is required. Download a copy o
 ## Usage
 Observe the financial statistics for Stellar Capital Ventures between January 2010 - February 2017. 
 
+<img width="733" alt="Screenshot 2024-03-01 012311" src="https://github.com/irtiza-S/console-finances/assets/61486852/95fc667c-450f-44b3-b3e1-c7288b710c46">
 
 ## Contact us
 
