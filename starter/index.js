@@ -153,7 +153,6 @@ function greatestDecrease(arr) {
   return ans
 }
 
-
 function logAnalysis() {
   console.log(`Financial Analysis`)
   console.log(`----------------------------`)
