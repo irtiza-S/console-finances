@@ -1,4 +1,4 @@
-var finances = [
+let finances = [
   ['Jan-2010', 867884],
   ['Feb-2010', 984655],
   ['Mar-2010', 322013],
@@ -124,10 +124,12 @@ function averageChange(arr) {
 }
 
 function greatestIncrease(arr) {
+  // initialise maximumInc and maxIncreaseMonth
   let maxIncrease = 0
   let maxIncMonth = ''
   for (let i = 1; i < arr.length; i++) {
     let currentIncrease = arr[i][1] - arr[i-1][1]
+    // if the current increase between current value and previous value is greater than maxInc
     if (currentIncrease > maxIncrease) {
       maxIncrease = currentIncrease
       maxIncMonth = arr[i][0]
